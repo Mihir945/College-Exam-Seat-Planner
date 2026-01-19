@@ -1,4 +1,4 @@
-// js/app.js
+
 
 // In-memory list of classrooms
 const classrooms = [];
@@ -16,7 +16,7 @@ function addClassroom() {
   const capacity = Number(capacityValue);
   const floorNo = Number(floorNoValue);
 
-  // Basic validation
+  //  validations
   if (!roomId) {
     alert("Please enter a Room ID.");
     return;
@@ -30,7 +30,7 @@ function addClassroom() {
     return;
   }
 
-  // Create classroom object
+  // Creating classroom object
   const classroom = {
     roomId,
     capacity,
@@ -100,7 +100,7 @@ function allocateExam() {
     return;
   }
 
-  // Simple allocation: fill classrooms in the order they were added
+  //  allocation: fill classrooms in the order they were added
   let remaining = totalStudents;
   const allocation = [];
 
@@ -133,7 +133,7 @@ function allocateExam() {
   });
 
   if (remaining > 0) {
-    output += `\n⚠ Still unallocated: ${remaining} students (not enough capacity).\n`;
+    output += `\n Still unallocated: ${remaining} students (not enough capacity).\n`;
   } else {
     output += `\nAll students have been allocated to classrooms.\n`;
   }
@@ -141,7 +141,6 @@ function allocateExam() {
   $("output").textContent = output;
 }
 
-// Render initial empty state
 document.addEventListener("DOMContentLoaded", () => {
   renderClassroomTable();
 });
