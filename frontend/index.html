@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exam Seat Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Exam Seat Planner</h1>
+    <p>Manage classrooms and allocate exam seats to students.</p>
+  </header>
+
+  <main>
+    <!-- Add Classroom Section -->
+    <section aria-labelledby="add-classroom-heading">
+      <h2 id="add-classroom-heading">Add Classroom</h2>
+
+      <form id="classroomForm" onsubmit="event.preventDefault(); addClassroom();">
+        <div class="form-group">
+          <label for="roomId">Room ID</label>
+          <input
+            id="roomId"
+            name="roomId"
+            type="text"
+            placeholder="e.g. C-204"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="capacity">Capacity</label>
+          <input
+            id="capacity"
+            name="capacity"
+            type="number"
+            min="1"
+            placeholder="Total seats in this room"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="floorNo">Floor number</label>
+          <input
+            id="floorNo"
+            name="floorNo"
+            type="number"
+            min="0"
+            placeholder="e.g. 1 for first floor"
+            required
+          >
+        </div>
+
+        <div class="form-group form-group-inline">
+          <input
+            type="checkbox"
+            id="nearWashroom"
+            name="nearWashroom"
+          >
+          <label for="nearWashroom">This room is near a washroom</label>
+        </div>
+
+        <button type="submit">Add classroom</button>
+      </form>
+    </section>
+
+    <hr>
+
+    <!-- All Classrooms Section -->
+    <section aria-labelledby="all-classrooms-heading">
+      <h2 id="all-classrooms-heading">All Classrooms</h2>
+
+      <p>Below is the list of all classrooms you have added.</p>
+
+      <table border="1" aria-describedby="classroom-table-description">
+        <caption id="classroom-table-description">
+          Classroom details with capacity, floor, and washroom proximity.
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Room</th>
+            <th scope="col">Capacity</th>
+            <th scope="col">Floor</th>
+            <th scope="col">Near washroom</th>
+          </tr>
+        </thead>
+        <tbody id="classroomTable">
+          <!-- Rows will be populated by JavaScript -->
+        </tbody>
+      </table>
+    </section>
+
+    <hr>
+
+    <!-- Allocate Exam Seats Section -->
+    <section aria-labelledby="allocate-exam-heading">
+      <h2 id="allocate-exam-heading">Allocate Exam Seats</h2>
+
+      <form id="allocationForm" onsubmit="event.preventDefault(); allocateExam();">
+        <div class="form-group">
+          <label for="students">Total number of students</label>
+          <input
+            id="students"
+            name="students"
+            type="number"
+            min="1"
+            placeholder="e.g. 120"
+            required
+          >
+        </div>
+
+        <button type="submit">Allocate seats</button>
+      </form>
+
+      <pre id="output" aria-live="polite"></pre>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
