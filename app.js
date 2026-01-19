@@ -46,7 +46,7 @@ function addClassroom() {
   $("roomId").focus();
 }
 
-// Render classrooms into the table
+// Showing classrooms into the table
 function renderClassroomTable() {
   const tbody = $("classroomTable");
   tbody.innerHTML = "";
@@ -100,7 +100,7 @@ function allocateExam() {
     return;
   }
 
-  //  allocation: fill classrooms in the order they were added
+  
   let remaining = totalStudents;
   const allocation = [];
 
@@ -123,7 +123,7 @@ function allocateExam() {
     remaining -= allocated;
   });
 
-  // Build a readable output
+  
   let output = "";
   output += `Total students: ${totalStudents}\n`;
   output += `Classrooms used: ${classrooms.length}\n\n`;
